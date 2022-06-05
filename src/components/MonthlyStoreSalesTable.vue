@@ -9,7 +9,12 @@
           :data="lensSales"
           :default-sort-direction="'asc'"
         >
-          <b-table-column field="storeName" label="store" v-slot="props" sortable>
+          <b-table-column
+            field="storeName"
+            label="store"
+            v-slot="props"
+            sortable
+          >
             {{ props.row.storeName }}
           </b-table-column>
           <!--  v-for the amount of months here-->
@@ -27,18 +32,8 @@ export default {
   name: "MonthlyStoreSalesTable",
   data() {
     return {
-      lensSales: []
-    };
-  },
-  created() {
-    this.getStoreLensSales();
-  },
-  mounted() {
-    this.getStoreLensSales();
-  },
-  methods: {
-    getStoreLensSales() {
-      this.lensSales = [
+      lensSales: [],
+      rawData: [
         {
           storeId: 1,
           quantity: 0,
@@ -2503,7 +2498,18 @@ export default {
           year: 2022,
           month: 6
         }
-      ];
+      ]
+    };
+  },
+  created() {
+    this.getStoreLensSales();
+  },
+  mounted() {
+    this.getStoreLensSales();
+  },
+  methods: {
+    getStoreLensSales() {
+      this.lensSales = this.rawData;
     }
   }
 };

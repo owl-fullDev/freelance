@@ -2510,6 +2510,10 @@ export default {
   methods: {
     getStoreLensSales() {
       this.lensSales = this.rawData;
+      //parse the list into years and months
+
+      //iterate through array once, if year exists add to it, else create new
+      //same with month
     }
   }
 };
